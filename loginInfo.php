@@ -1,45 +1,41 @@
-<!DOCTYPE html>
+<?php 
+session_start();
+?>
 <html>
-	<head>
-	<style>
-		table, th, td 
-		{
-			border: 1px solid black;
-			border-collapse: collapse;
-		}
-		th, td 
-		{
-			padding: 15px;
-		}
-	</style>
-	</head>
-	<body>
-		<h1>User Login Information</h1>
-		<hr><br>
-		<table style="width100%">
-			<tr>
-				<th>Serial</th>
-				<th>User Name</th>
-				<th>password</th>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-		</table><br>
-		<a href="home.php"><input type="button" name="home" value="Home"></a><br>
-		<a href="index.php"><input type="button" name="logout" value="Log Out"></a><br>
-	</body>
+     <head>
+	     <title> User Login Info Page </title>
+		 <h1 align="center">User Login Info </h1>
+		 <hr/>
+	 </head>
+  
+     <body>
+	 
+	     <br>
+		 <form name="logininfo" method="" action="">
+		 <input type=button onclick="location.href='logout.php'" value="Logout"/>
+		 &nbsp &nbsp
+		 <input type=button onclick="location.href='hom.php'" value="Home"/>
+		 <br><br>
+		 </form>
+		 
+		 <table align="center" border="1" width="70%">
+		 <tr>
+			     <th>Serial</th>
+				 <th>UserName</th>
+				 <th>Password</th>
+		
+	     </tr>
+	     <?php  
+		    $count = 1;
+		    foreach ($_SESSION['info'] as $reg):
+         ?>
+		 <tr>
+			     <td><?php echo $count++?></td>
+				 <td><?php echo $reg['username']?></td>
+				 <td><?php echo $reg['password']?></td>
+			
+	     </tr>
+	     <?php endforeach;?>
+		 </table>
+	 </body>
 </html>
